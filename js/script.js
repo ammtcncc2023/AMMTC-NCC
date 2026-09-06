@@ -1,86 +1,45 @@
-/* =========================================================
-   ASANNAGAR MMT COLLEGE NCC
-   WEBSITE JAVASCRIPT
-========================================================= */
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navMenu");
 
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+// Mobile menu
 
-const menuBtn =
-  document.getElementById("menuBtn");
-
-const navMenu =
-  document.getElementById("navMenu");
-
-
-menuBtn.addEventListener(
-  "click",
-  function(){
+menuBtn.addEventListener("click", () => {
 
     navMenu.classList.toggle("show");
 
-  }
-);
+});
 
 
+// Close menu after clicking a link
 
-/* =========================================================
-   CLOSE MENU AFTER CLICKING A LINK
-========================================================= */
+document.querySelectorAll(".nav a").forEach(link => {
 
-const navLinks =
-  document.querySelectorAll(
-    "#navMenu a"
-  );
-
-
-navLinks.forEach(
-  function(link){
-
-    link.addEventListener(
-      "click",
-      function(){
+    link.addEventListener("click", () => {
 
         navMenu.classList.remove("show");
 
-      }
-    );
+    });
 
-  }
-);
+});
 
 
+// Add shadow to header when scrolling
 
-/* =========================================================
-   SIMPLE IMAGE FALLBACK
-   If an image is missing, show a clean placeholder
-   instead of a broken-image icon.
-========================================================= */
+window.addEventListener("scroll", () => {
 
-const images =
-  document.querySelectorAll("img");
+    const header = document.querySelector(".header");
 
+    if (window.scrollY > 50) {
 
-images.forEach(
-  function(image){
+        header.style.background =
+            "rgba(3, 15, 24, 0.98)";
 
-    image.addEventListener(
-      "error",
-      function(){
+    } else {
 
-        image.style.display = "none";
+        header.style.background =
+            "rgba(4, 18, 29, 0.94)";
 
-        const parent =
-          image.parentElement;
+    }
 
-        parent.classList.add(
-          "image-missing"
-        );
-
-      }
-    );
-
-  }
-);
+});
